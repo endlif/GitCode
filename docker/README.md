@@ -205,13 +205,13 @@ ps 列出服务相关的容器
 ```
 
 使用方式
-docker-compose build // 创建容器
-docker-compose up  // 启动项目，可查看输出信息
-docker-compose up -d // 启动项目，后台执行
-docker-compose stop // 停止容器
-docker-compose rm // 删除所有容器
-docker-compose logs // 观察容器的日志
-docker-compose ps // 查看容器
+- docker-compose build // 创建容器
+- docker-compose up  // 启动项目，可查看输出信息
+- docker-compose up -d // 启动项目，后台执行
+- docker-compose stop // 停止容器
+- docker-compose rm // 删除所有容器
+- docker-compose logs // 观察容器的日志
+- docker-compose ps // 查看容器
 网站首页： http://localhost:80/ 或 http://localhost:2368/
 
 后台管理页： http://localhost:80/ghost
