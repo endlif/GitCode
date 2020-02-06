@@ -132,6 +132,33 @@ sh $PROJ_PATH/order/deploy.sh
 4、确定发布结果的正确性
 
 
+
+## 基于Docker+Jenkins实现自动化部署
+
+https://www.cnblogs.com/ming-blogs/p/10903408.html
+
+
+```shell
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_data:/var/jenkins_home jenkinsci/blueocean
+```
+
+$docker exec -it 
+/ $ cat /var/jenkins_home/secrets/initialAdminPassword
+400165bc916048e98afe0ef458e141cd
+
+
+Jenkins全局工具配置
+进入到jenkins容器中 echo $JAVA_HOME 获取java环境安装地址
+/ $ echo $JAVA_HOME
+/usr/lib/jvm/java-1.8-openjdk
+
+ 
+- JDK环境安装
+- Maven环境安装
+
+
+
+
 ## 参考：
 项目的地址:https://github.com/princeqjzh/order
 
