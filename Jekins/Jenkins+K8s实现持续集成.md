@@ -106,14 +106,7 @@ docker run -p 5000:5000 -v /home/registry_images::var/lib/registry -d registry
 3、Jenkin项目构建
 
 
-#### 基于Docker+Jenkins实现自动化部署
 
-https://www.cnblogs.com/ming-blogs/p/10903408.html
-
-
-```
-
-```
 
 ## 参考：
 慕课地址

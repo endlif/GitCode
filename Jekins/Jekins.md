@@ -157,6 +157,95 @@ Jenkins全局工具配置
 - Maven环境安装
 
 
+#### Jenkins启动成功之后执行shll脚本
+```
+#!/bin/bash
+
+#服务名称
+
+SERVER_NAME=springboot
+
+# 源jar路径,mvn打包完成之后，target目录下的jar包名称，也可选择成为war包，war包可移动到Tomcat的webapps目录下运行，这里使用jar包，用java -jar 命令执行  
+
+JAR_NAME=springboot-0.0.1-SNAPSHOT
+
+# 源jar路径  
+
+#/usr/local/jenkins_home/workspace--->jenkins 工作目录
+
+#demo 项目目录
+
+#target 打包生成jar包的目录
+
+JAR_PATH=/var/jenkins_home/workspace/springboot/target
+
+# 打包完成之后，把jar包移动到运行jar包的目录--->work_daemon，work_daemon这个目录需要自己提前创建
+
+JAR_WORK_PATH=/var/jenkins_home/workspace/springboot/target
+
+ 
+
+echo "查询进程id-->$SERVER_NAME"
+
+PID=`ps -ef | grep "$SERVER_NAME" | awk '{print $2}'`
+
+echo "得到进程ID：$PID"
+
+echo "结束进程"
+
+for id in $PID
+
+do
+
+kill -9 $id  
+
+echo "killed $id"  
+
+done
+
+echo "结束进程完成"
+
+ 
+
+#复制jar包到执行目录
+
+echo "复制jar包到执行目录:cp $JAR_PATH/$JAR_NAME.jar $JAR_WORK_PATH"
+
+cp $JAR_PATH/$JAR_NAME.jar $JAR_WORK_PATH
+
+echo "复制jar包完成"
+
+cd $JAR_WORK_PATH
+
+#修改文件权限
+
+chmod 755 $JAR_NAME.jar
+
+ 
+
+Nohub  java -jar $JAR_NAME.jar
+```
+
+#### 如何获得docker容器里面的root权限
+
+- sudo docker exec -ti -u root 7509371edd48 bash
+
+#### Docker容器和本机之间的文件传输
+
+- docker cp hostfile 7509371edd48:/path/dockerfile
+
+
+
+#### 容器映射8081端口
+1. 重启容器
+
+systemctl restart  docker  
+
+ 2. 清空未运行的容器
+
+docker rm $(sudo docker ps -a -q)
+
+docker run -p 8080:8080   -p 8081:8081   -p 50000:50000 -v jenkins_data:/var/jenkins_home jenkinsci/blueocean
 
 
 ## 参考：
