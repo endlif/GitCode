@@ -1,0 +1,6 @@
+*.zip
+*.exe
+*.log
+*.idea
+test.ps1
+/_work
