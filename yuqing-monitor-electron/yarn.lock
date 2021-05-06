@@ -3540,9 +3540,9 @@ header-case@^1.0.0:
     no-case "^2.2.0"
     upper-case "^1.1.3"
 
-highcharts@^7.0.2:
-  version "7.0.2"
-  resolved "http://registry.npm.taobao.org/highcharts/download/highcharts-7.0.2.tgz#18a59814d3ca61efa593e3141941147327e9eafb"
+highcharts@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-9.0.0.tgz#2e5d382481f71c50ac7f086e7bdead394fab71d4"
 
 highlight.js@^9.3.0:
   version "9.13.1"
